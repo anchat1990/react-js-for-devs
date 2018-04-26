@@ -2,18 +2,22 @@ var response = null;
 var followers = null;
 
 document.getElementsByTagName('button')[0].addEventListener('click', function(r) {
+  document.getElementById('loader').style = 'display: block';
   getUser(document.getElementsByTagName('input')[0].value);
 });
 
 function getUser(name) {
-    clearFollowers();
+  clearFollowers();
   fetch('https://api.github.com/users/' + name)
     .then(function(r) {
       return r.json();
     })
     .then(function(j) {
       response = j;
+      console.log("fetched profile:", j)
+      // assign values to fetched GH profile
       assignValues();
+      // get the followers for fetched GH profile
       getFollowers(j.followers_url);
     })
 }
@@ -41,6 +45,7 @@ function getFollowers(url) {
     })
     .then(function(f) {
       followers = f;
+      console.log("followers:", f);
       listFollowers();
     });
 }
