@@ -10,3 +10,13 @@ Things I learnt in Cassidy's course
 not javascript , its own language.  
 Cant store functions. Only primitives.
 JSON.parse(), JSON.stringify()
+
+
+# function.call
+
+```js
+function greet(greeting) {
+  console.log(greeting + "," + this);
+}
+greet.call("Anwesha", "Hello");
+```
