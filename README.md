@@ -20,3 +20,13 @@ function greet(greeting) {
 }
 greet.call("Anwesha", "Hello");
 ```
+
+# function.apply
+Like call but need to pass in an array for the second parameter
+
+# function.bind
+creates a new function with a new context
+
+# let vs const 
+let stops hoisting bugs. throws error if referenced before declaration
+they are both block scoped, but const cannot be redeclared or resssigned
